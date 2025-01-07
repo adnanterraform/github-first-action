@@ -1,15 +1,21 @@
-name: First Workflow
+name: Node.js Workflow
 on: push
-jobs: 
-  first_job:
+jobs:
+  node_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print greeting
-        run: echo "Hello World"
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: List files
-        run: ls
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
-      - name: Read file
-        run: cat README.md
-        
+      - name: Check Node.js version
+        run: node -v
+
+      - name: Create and run a JavaScript file
+        run: |
+          echo "console.log('Hello from Node.js');" > hello.js
+          node hello.js
