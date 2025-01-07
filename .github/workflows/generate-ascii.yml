@@ -14,7 +14,9 @@ jobs:
 
 # Scripts are used to make the workflow easeir to manage 
       - name: Executing Shell Script
-        run: ./ascii-script.sh
+        run: |
+          chmod +x ascii-script.sh
+          ./ascii-script.sh
 
 
 # Longer method which is still valid way 
