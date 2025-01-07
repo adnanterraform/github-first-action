@@ -1,4 +1,4 @@
-name: Generate ASCII Artwork
+name: Run ASCII Script
 on: push
 
 jobs:
@@ -10,15 +10,15 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      # Step 2: List repository files for debugging
-      - name: List Repo Files
-        run: ls -ltra
-
-      # Step 3: Execute the shell script
-      - name: Executing Shell Script
+      # Step 2: Make the script executable and run it
+      - name: Execute ASCII Script
         run: |
-          chmod +x ascii-script.sh
-          ./ascii-script.sh 
+          chmod +x ./ascii-script.sh
+          ./ascii-script.sh
+
+      # Step 3: Display the output of dragon.txt
+      - name: Display dragon.txt
+        run: cat dragon.txt
 
 
 # Longer method which is still valid way 
