@@ -1,0 +1,40 @@
+name: Run Multiple Workloads
+on: push
+
+jobs:
+  build_job_1:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Install cowsay program
+      - name: Install cowsay program
+        run: sudo apt-get install cowsay -y
+
+      # Step 2: Execute cowsay command
+      - name: Execute Cowsay CMD
+        run: cowsay -f dragon "Run for cover, I am a dragon......RAWR" >> dragon.txt
+
+      # Step 3: Sleep for 30 seconds
+      - name: Sleep for 30 seconds
+        run: sleep 30
+
+  test_job_2:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Sleep for 10 seconds
+      - name: Sleep for 10 seconds
+        run: sleep 10
+
+      # Step 2: Verify file exists
+      - name: Test File Exists
+        run: grep -i "dragon" dragon.txt
+
+  deploy_job_3:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: read the job output
+      - name: Read File
+        run: cat dragon.txt
+
+      # Step 2: Deploy
+      - name: Deploy
+        run: echo Deploying ... .. .
