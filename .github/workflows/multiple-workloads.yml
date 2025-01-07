@@ -18,6 +18,8 @@ jobs:
         run: sleep 30
 
   test_job_2:
+    # Adding a sequence - (needs:) which job needs to run first for build job 2 to start
+    needs: build_job_1  
     runs-on: ubuntu-latest
     steps:
       # Step 1: Sleep for 10 seconds
@@ -29,6 +31,7 @@ jobs:
         run: grep -i "dragon" dragon.txt
 
   deploy_job_3:
+    needs: build_job_2  
     runs-on: ubuntu-latest
     steps:
       # Step 1: read the job output
