@@ -14,8 +14,8 @@ jobs:
 # Scripts are used to make the workflow easeir to manage 
       - name: Executing Shell Script
         run: |
-          chmod +x script.sh
-          ../script.sh
+          chmod +x ascii-script.sh
+          ./ascii-script.sh
 
 
 
@@ -38,3 +38,6 @@ jobs:
 
       # - name: List Repos Files
       #   run: ls -ltra
+
+
+    #   fixing the issue
