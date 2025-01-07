@@ -17,8 +17,8 @@ jobs:
       # Step 3: Execute the shell script
       - name: Executing Shell Script
         run: |
-          chmod +x ../ascii-script.sh
-          ../ascii-script.sh
+          chmod +x ascii-script.sh
+          ./ascii-script.sh 
 
 
 # Longer method which is still valid way 
