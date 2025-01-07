@@ -16,7 +16,8 @@ jobs:
       - name: Executing Shell Script
         run: |
           chmod +x ascii-script.sh
-          ./ascii-script.sh
+          adnanterraform/github-first-action/.github/workflows/ascii-script.sh
+
 
 
 # Longer method which is still valid way 
