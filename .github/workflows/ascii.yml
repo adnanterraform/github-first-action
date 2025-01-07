@@ -13,8 +13,8 @@ jobs:
       # Step 2: Make the script executable and run it
       - name: Execute ASCII Script
         run: |
-          chmod +x ascii-script.sh
-          ascii-script.sh
+          chmod +x .github/workflows/ascii-script.sh
+          ./.github/workflows/ascii-script.sh
 
       # Step 3: Display the output of dragon.txt
       - name: Display dragon.txt
