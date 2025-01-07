@@ -10,16 +10,17 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      # Step 2: Make the script executable and run it
+      # Step 2: List File
+      - name: List file
+        run: ls -ltra
+
+      # Step 3: Make the script executable and run it
       - name: Execute ASCII Script
         run: |
           chmod +x .github/workflows/ascii-script.sh
           ./.github/workflows/ascii-script.sh
 
-      - name: List file
-        run: ls -ltra
-
-      # Step 3: Display the output of dragon.txt
+      # Step 4: Display the output of dragon.txt
       - name: Display dragon.txt
         run: cat dragon.txt
 
