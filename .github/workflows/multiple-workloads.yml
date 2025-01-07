@@ -17,33 +17,32 @@ jobs:
       - name: Upload Dragon File
         uses: actions/upload-artifact@v4
         with:
-          name: dragon-text-file
-          path: dragon.txt  # Corrected to the actual file path
+          name: dragon-text-file  # Ensure the name is consistent here
+          path: dragon.txt        # Path to the generated file
 
   test_job_2:
-    # Adding a sequence - (needs:) which job needs to run first for build_job_2 to start
-    needs: build_job_1  
+    needs: build_job_1  # Ensures this job runs after build_job_1
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Download the dragon file from the path of file created in the build_job_1 upload
+      # Step 1: Download the dragon file from the build_job_1 upload
       - name: Download Dragon File
         uses: actions/download-artifact@v3
         with:
-          name: dragon-text-file  # Only give the name of the file to download
+          name: dragon-text-file  # Ensure this matches the upload name
     
       # Step 2: Verify file exists
       - name: Test File Exists
         run: grep -i "dragon" dragon.txt
 
   deploy_job_3:
-    needs: test_job_2  
+    needs: test_job_2  # Ensures this job runs after test_job_2
     runs-on: ubuntu-latest
     steps:
       # Step 1: Download Dragon File
       - name: Download Dragon File
         uses: actions/download-artifact@v3
         with:
-          name: dragon-text-file  # Only give the name of the file to download    
+          name: dragon-text-file  # Ensure this matches the upload name    
     
       # Step 2: Read the job output
       - name: Read File
