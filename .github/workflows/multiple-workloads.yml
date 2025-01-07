@@ -31,7 +31,7 @@ jobs:
         run: grep -i "dragon" dragon.txt
 
   deploy_job_3:
-    needs: build_job_2  
+    needs: test_job_2  
     runs-on: ubuntu-latest
     steps:
       # Step 1: read the job output
