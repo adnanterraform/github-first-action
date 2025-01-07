@@ -16,6 +16,9 @@ jobs:
           chmod +x .github/workflows/ascii-script.sh
           ./.github/workflows/ascii-script.sh
 
+      - name: List file
+        run: ls -ltra
+
       # Step 3: Display the output of dragon.txt
       - name: Display dragon.txt
         run: cat dragon.txt
