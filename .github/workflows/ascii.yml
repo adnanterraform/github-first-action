@@ -1,27 +1,26 @@
-name: Generate ascii artwork
+name: Generate ASCII Artwork
 on: push
-jobs: 
+
+jobs:
   ascii_job:
     runs-on: ubuntu-latest
+
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-
-      - name: List Repos Files
+      # Step 2: List repository files for debugging
+      - name: List Repo Files
         run: ls -ltra
 
-# Scripts are used to make the workflow easeir to manage 
+      # Step 3: Execute the shell script
       - name: Executing Shell Script
         run: |
-          chmod +x ascii-script.sh
+          chmod +x ./ascii-script.sh
           ./ascii-script.sh
 
-
-
-# fixing the code 
-
-
+          
 # Longer method which is still valid way 
 
       # - name: Install Cowsay Program
