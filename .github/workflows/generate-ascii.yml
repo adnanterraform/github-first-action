@@ -8,20 +8,29 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Install Cowsay Program
-        run: sudo apt-get install cowsay -y
-
-      - name: Execute Cowsay CMD
-        run: cowsay -f dragon "Run for cover, I am a dragon......RAWR" >> dragon.txt
-
-      - name: Check File Exists
-        run: grep -i dragon "dragon.txt"
-
-      - name: Read File
-        run: cat dragon.txt
 
       - name: List Repos Files
         run: ls -ltra
 
+# Scripts are used to make the workflow easeir to manage 
+      - name: Executing Shell Script
+        run: ./ascii-script.sh
 
-        # The above steps show dependeances installed in the workflow
+
+# Longer method which is still valid way 
+
+      # - name: Install Cowsay Program
+      #   run: sudo apt-get install cowsay -y
+
+      # - name: Execute Cowsay CMD
+      #   run: cowsay -f dragon "Run for cover, I am a dragon......RAWR" >> dragon.txt
+
+      # - name: Check File Exists
+      #   run: grep -i dragon "dragon.txt"
+
+      # - name: Read File
+      #   run: cat dragon.txt
+
+      # - name: List Repos Files
+      #   run: ls -ltra
+
